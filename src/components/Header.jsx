@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 function Header() {
   const wishlist = useSelector((state)=>state.wishlistSliceReducer)
+  const cart = useSelector((state)=>state.cartReducer)
   return (
     <Navbar style={{zIndex:'1'}} expand="lg" className="bg-primary">
       <Container>
@@ -20,7 +21,7 @@ function Header() {
             <Nav.Link className='btn border rounded'>
                 <Link to={'/cart'} className='d-flex align-items-center' style={{textDecoration:'none',color:'white',fontWeight:'bold'}}>
                     <i className="fa-solid fa-cart-shopping text-warning me-2"></i>Cart    
-                    <Badge className='ms-2 rounded' bg='light'> 10 </Badge>
+                    <Badge className='ms-2 rounded' bg='light'> {cart.length} </Badge>
                 </Link>
             </Nav.Link>
           </Nav>
